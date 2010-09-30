@@ -11,6 +11,7 @@ class Starspan
   
   def initialize options = {}
     
+    
     @raster = options[:raster]
     @vector = options[:vector]
     @stats = options[:stats]

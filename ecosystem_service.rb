@@ -39,7 +39,9 @@ end
 #doing all the work by creating the folders hang off to the starspan class and returning the hash array
 def raster_summary geom_path, raster
   
-  
+  #these need altering for deployment
+  server_path = "/var/www/vhosts/default_site/public/"
+  starspan_path = "/usr/local/bin/"
   #if params[:geomtype] == "ESRI Shapefile"
   
   
@@ -54,12 +56,13 @@ def raster_summary geom_path, raster
   #get path of shp
   rio(folder).all.files('*.shp') { |f| shp_path = f.to_s }
 
+  
   #setup params for starspan
-  options = {:raster => raster, 
-              :vector => shp_path, 
+  options = {:raster => "#{server_path}#{raster}", 
+              :vector => "#{server_path}#{shp_path}", 
               :stats=>["sum"], 
-              :data_folder => "data3", 
-              :starspan => "starspan"}
+              :data_folder => "#{server_path}data", 
+              :starspan => "#{starspan_path}starspan"}
 
   #TODO: need a better way of waiting for the commands to be finished before carrying on....
   starttime = Time.now
