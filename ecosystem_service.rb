@@ -1,5 +1,5 @@
-require 'rubygems'#comment out for deployment
-require 'sinatra'#comment out for deployment
+#require 'rubygems'#comment out for deployment
+#require 'sinatra'#comment out for deployment
 require 'rio'
 require 'starspan'
 
