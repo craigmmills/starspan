@@ -1,0 +1,2 @@
+using starspan to summarise rasters within polygons.  Simple interface to it and a sinatra app to POST shpfiles.
+
