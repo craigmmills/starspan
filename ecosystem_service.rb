@@ -1,5 +1,5 @@
-#require 'rubygems'#comment out for deployment
-#require 'sinatra'#comment out for deployment
+require 'rubygems'#comment out for deployment
+require 'sinatra'#comment out for deployment
 require 'rio'
 require 'starspan'
 
@@ -41,7 +41,10 @@ def raster_summary geom_path, raster
   
   #these need altering for deployment
   server_path = "/var/www/vhosts/default_site/public/"
-  starspan_path = "/usr/local/bin/"
+  starspan_path = "/usr/local/bin/"  
+  
+  # server_path = ""
+  #   starspan_path = ""
   #if params[:geomtype] == "ESRI Shapefile"
   
   
@@ -63,6 +66,8 @@ def raster_summary geom_path, raster
               :stats=>["sum"], 
               :data_folder => "#{server_path}data", 
               :starspan => "#{starspan_path}starspan"}
+  
+  
 
   #TODO: need a better way of waiting for the commands to be finished before carrying on....
   starttime = Time.now
